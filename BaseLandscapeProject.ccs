@@ -123,6 +123,7 @@
           <Image Name="wrappedtrans_teal.png" />
           <Image Name="wrappedtrans_yellow.png" />
         </Folder>
+        <Image Name="Hearts_01_64x64_009.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

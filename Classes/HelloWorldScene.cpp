@@ -38,7 +38,6 @@ bool HelloWorld::init()
 
 	gameLive = true;
 	downSpeed = 0;
-
 	
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
 	bean_2 = (Sprite*)rootNode->getChildByName("bean_2");
@@ -58,28 +57,12 @@ bool HelloWorld::init()
 	wrapped_2 = (Sprite*)rootNode->getChildByName("wrapped_2");
 	wrapped_3 = (Sprite*)rootNode->getChildByName("wrapped_3");
 	wrapped_4 = (Sprite*)rootNode->getChildByName("wrapped_4");
+	Life_1 = (Sprite*)rootNode->getChildByName("Life_1");
+	Life_2 = (Sprite*)rootNode->getChildByName("Life_2");
+	Life_3 = (Sprite*)rootNode->getChildByName("Life_3");
+	Lives = 3;
 
-	Candies = CCArray::createWithCapacity(18);
-	Candies->retain();
-	Candies->addObject(bean_1);
-	Candies->addObject(bean_2);
-	Candies->addObject(bean_3);
-	Candies->addObject(bean_4);
-	Candies->addObject(cane);
-	Candies->addObject(corn);
-	Candies->addObject(heart_1);
-	Candies->addObject(heart_2);
-	Candies->addObject(heart_3);
-	Candies->addObject(heart_4);
-	Candies->addObject(jelly_1);
-	Candies->addObject(jelly_2);
-	Candies->addObject(jelly_3);
-	Candies->addObject(jelly_4);
-	Candies->addObject(wrapped_1);
-	Candies->addObject(wrapped_2);
-	Candies->addObject(wrapped_3);
-	Candies->addObject(wrapped_4);
-	
+	currentSprite = bean_1;
 	downSpeed = 2;
 
 	this->scheduleUpdate();
@@ -88,17 +71,124 @@ bool HelloWorld::init()
 }
 void HelloWorld::update(float delta)
 {
-	
-	auto FallObj = Candies->randomObject();
-	Vec2 CurrPos = bean_1->getPosition();
+	fallingObj();
+}
+cocos2d::Sprite* HelloWorld::randomSprite()
+{
+	int RandS = 0;
+	RandS = random() % 18;
+	if (RandS == 0)
+	{
+		return bean_1;
+	}
+	if (RandS == 1)
+	{
+		return bean_2;
+	}
+	if (RandS == 2)
+	{
+		return bean_3;
+	}
+	if (RandS == 3)
+	{
+		return bean_4;
+	}
+	if (RandS == 4)
+	{
+		return cane;
+	}
+	if (RandS ==5)
+	{
+		return corn;
+	}
+	if (RandS == 6)
+	{
+		return heart_1;
+	}
+	if (RandS == 7)
+	{
+		return heart_2;
+	}
+	if (RandS == 8)
+	{
+		return heart_3;
+	}
+	if (RandS == 9)
+	{
+		return heart_4;
+	}
+	if (RandS == 10)
+	{
+		return jelly_1;
+	}
+	if (RandS == 11)
+	{
+		return jelly_2;
+	}
+	if (RandS == 12)
+	{
+		return jelly_3;
+	}
+	if (RandS == 13)
+	{
+		return jelly_4;
+	}
+	if (RandS == 14)
+	{
+		return wrapped_1;
+	}
+	if (RandS == 15)
+	{
+		return wrapped_2;
+	}
+	if (RandS == 16)
+	{
+		return wrapped_3;
+	}
+	if (RandS == 17)
+	{
+		return wrapped_4;
+	}
+	else
+	{
+		return bean_1;
+	}
+
+
+}
+void HelloWorld::LooseLife()
+{
+	Lives--;
+		if (Lives == 2)
+		{
+			Life_1->setPosition(-100, -100);
+
+		}
+		if (Lives == 1)
+		{
+			Life_2->setPosition(-100, -100);
+
+		}
+		if (Lives == 0)
+		{
+			Life_3->setPosition(-100, -100);
+			//Call end screen
+			ExitProcess(0); // remove once we have end screen
+
+		}
+}
+void HelloWorld::fallingObj()
+{
+	Vec2 CurrPos = currentSprite->getPosition();
 	CurrPos.x = randX;
 	CurrPos.y -= downSpeed;
-	bean_1->setPosition(CurrPos); 
+	currentSprite->setPosition(CurrPos);
 	if (CurrPos.y < 50)
 	{
 		randX = random() % 925 + 35;
-		bean_1->setPosition(randX, 600);
-		
-	}
+		currentSprite->setPosition(randX, 700);
+		currentSprite = randomSprite();
+		LooseLife();
 
+	}
 }

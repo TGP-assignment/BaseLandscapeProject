@@ -17,6 +17,11 @@ public:
     CREATE_FUNC(HelloWorld);
 
 	void update(float);
+	void LooseLife();
+	void fallingObj();
+	int RandomX();
+	cocos2d::Sprite* randomSprite();
+	cocos2d::Sprite*	currentSprite;
 
 	cocos2d::Sprite*        bean_1;
 	cocos2d::Sprite*        bean_2;
@@ -36,11 +41,15 @@ public:
 	cocos2d::Sprite*        wrapped_2;
 	cocos2d::Sprite*        wrapped_3;
 	cocos2d::Sprite*        wrapped_4;
+	cocos2d::Sprite*        Life_1;
+	cocos2d::Sprite*        Life_2;
+	cocos2d::Sprite*        Life_3;
 	int		downSpeed;
 	float		randX;
 	float		randY;
 	bool		gameLive;
-	cocos2d::CCArray*		 Candies;
+	int			Lives;
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__

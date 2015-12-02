@@ -215,6 +215,39 @@
             <FileData Type="Normal" Path="candies/wrappedsolid_red.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Life_1" ActionTag="-1342029691" Tag="24" IconVisible="False" LeftMargin="868.0000" RightMargin="28.0000" TopMargin="578.0000" BottomMargin="-2.0000" ctype="SpriteObjectData">
+            <Size X="64.0000" Y="64.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="900.0000" Y="30.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9375" Y="0.0469" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="Hearts_01_64x64_009.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Life_2" ActionTag="1761560421" Tag="25" IconVisible="False" LeftMargin="788.0000" RightMargin="108.0000" TopMargin="578.0000" BottomMargin="-2.0000" ctype="SpriteObjectData">
+            <Size X="64.0000" Y="64.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="820.0000" Y="30.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.8542" Y="0.0469" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="Hearts_01_64x64_009.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Life_3" ActionTag="40718294" Tag="26" IconVisible="False" LeftMargin="708.0000" RightMargin="188.0000" TopMargin="578.0000" BottomMargin="-2.0000" ctype="SpriteObjectData">
+            <Size X="64.0000" Y="64.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="740.0000" Y="30.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7708" Y="0.0469" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="Hearts_01_64x64_009.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
