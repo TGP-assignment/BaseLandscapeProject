@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-
+class fallingObject;
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -19,7 +19,6 @@ public:
 	void update(float);
 	void LooseLife();
 	void fallingObj();
-	int RandomX();
 	cocos2d::Sprite* randomSprite();
 	cocos2d::Sprite*	currentSprite;
 
@@ -44,11 +43,13 @@ public:
 	cocos2d::Sprite*        Life_1;
 	cocos2d::Sprite*        Life_2;
 	cocos2d::Sprite*        Life_3;
+	fallingObject*	Object1;
+	fallingObject*	Object2;
 	int		downSpeed;
 	float		randX;
 	float		randY;
-	bool		gameLive;
 	int			Lives;
+	bool		TouchedBot;
 
 };
 

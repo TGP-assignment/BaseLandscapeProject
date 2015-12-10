@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "fallingObject.h"
 
 USING_NS_CC;
 
@@ -35,8 +36,6 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
-
-	gameLive = true;
 	downSpeed = 0;
 	
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
@@ -64,14 +63,32 @@ bool HelloWorld::init()
 
 	currentSprite = bean_1;
 	downSpeed = 2;
+	randX = random() % 925 + 35;
+	currentSprite = randomSprite();
+	Object1 = new fallingObject();
+	Object1->initObject(currentSprite);
+	currentSprite = randomSprite();
+	Object2 = new fallingObject();
+	Object2->initObject(currentSprite);
 
 	this->scheduleUpdate();
-	randX = random() % 925 + 35;
     return true;
+
 }
 void HelloWorld::update(float delta)
 {
-	fallingObj();
+	Object1->update();
+	Object2->update();
+	if(Object1->Touched)
+	{
+		TouchedBot = true;
+		Object1->Touched = false;
+		LooseLife();
+	}
+	else
+	{
+
+	}
 }
 cocos2d::Sprite* HelloWorld::randomSprite()
 {
@@ -158,7 +175,10 @@ cocos2d::Sprite* HelloWorld::randomSprite()
 }
 void HelloWorld::LooseLife()
 {
-	Lives--;
+	if (TouchedBot == true)
+	{
+
+		Lives--;
 		if (Lives == 2)
 		{
 			Life_1->setPosition(-100, -100);
@@ -173,22 +193,10 @@ void HelloWorld::LooseLife()
 		{
 			Life_3->setPosition(-100, -100);
 			//Call end screen
-			ExitProcess(0); // remove once we have end screen
+			//ExitProcess(0); // remove once we have end screen
 
 		}
-}
-void HelloWorld::fallingObj()
-{
-	Vec2 CurrPos = currentSprite->getPosition();
-	CurrPos.x = randX;
-	CurrPos.y -= downSpeed;
-	currentSprite->setPosition(CurrPos);
-	if (CurrPos.y < 50)
-	{
-		randX = random() % 925 + 35;
-		currentSprite->setPosition(randX, 700);
-		currentSprite = randomSprite();
-		LooseLife();
-
+		
 	}
+	TouchedBot = false;
 }
