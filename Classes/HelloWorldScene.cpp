@@ -70,6 +70,12 @@ bool HelloWorld::init()
 	currentSprite = randomSprite();
 	Object2 = new fallingObject();
 	Object2->initObject(currentSprite);
+	currentSprite = randomSprite();
+	Object3 = new fallingObject();
+	Object3->initObject(currentSprite);
+	currentSprite = randomSprite();
+	Object4 = new fallingObject();
+	Object4->initObject(currentSprite);
 
 	this->scheduleUpdate();
     return true;
@@ -79,16 +85,30 @@ void HelloWorld::update(float delta)
 {
 	Object1->update();
 	Object2->update();
+	Object3->update();
+	Object4->update();
+
 	if(Object1->Touched)
 	{
-		TouchedBot = true;
 		Object1->Touched = false;
 		LooseLife();
 	}
-	else
+	if (Object2->Touched)
 	{
-
+		Object2->Touched = false;
+		LooseLife();
 	}
+	if (Object3->Touched)
+	{
+		Object3->Touched = false;
+		LooseLife();
+	}
+	if (Object4->Touched)
+	{
+		Object4->Touched = false;
+		LooseLife();
+	}
+
 }
 cocos2d::Sprite* HelloWorld::randomSprite()
 {
@@ -175,8 +195,6 @@ cocos2d::Sprite* HelloWorld::randomSprite()
 }
 void HelloWorld::LooseLife()
 {
-	if (TouchedBot == true)
-	{
 
 		Lives--;
 		if (Lives == 2)
@@ -193,10 +211,8 @@ void HelloWorld::LooseLife()
 		{
 			Life_3->setPosition(-100, -100);
 			//Call end screen
-			//ExitProcess(0); // remove once we have end screen
+			ExitProcess(0); // remove once we have end screen
 
 		}
 		
-	}
-	TouchedBot = false;
 }

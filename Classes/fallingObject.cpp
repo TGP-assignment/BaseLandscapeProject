@@ -17,24 +17,27 @@ void fallingObject::initObject(cocos2d::Sprite* passedSpite)
 {
 	currentSpite = passedSpite;
 	randomX = rand() % 925 + 35;
-	downSpeed = rand() % 3;
+	downSpeed = rand() % 3 + 1;
 	currentPosition = currentSpite->getPosition();
 	Touched = false;
-	ResetPosition.x = 0;
-	ResetPosition.y = 300;
+	currentPosition.x = randomX;
+
+
 
 }
 
 void fallingObject::update()
 {
 
-	currentPosition.x = randomX;
 	currentPosition.y -= downSpeed;
 	currentSpite->setPosition(currentPosition);
-	if (currentPosition.y < 50)
+
+	if (currentPosition.y <= 30)
 	{
-		currentSpite->setPosition(ResetPosition);
+		currentPosition.x = rand() % 925 + 35;
+		currentPosition.y = 700;
 		Touched = true;
+		downSpeed = rand() % 3 + 1;
 
 	}
 	else
@@ -42,4 +45,5 @@ void fallingObject::update()
 		Touched = false;
 	}
 }
+
 

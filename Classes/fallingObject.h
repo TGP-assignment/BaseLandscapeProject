@@ -14,7 +14,6 @@ public:
 	float randomX;
 	int		downSpeed;
 	cocos2d::Vec2 currentPosition;
-	cocos2d::Vec2 ResetPosition;
 	int currentX;
 	int currentY;
 	bool Touched;

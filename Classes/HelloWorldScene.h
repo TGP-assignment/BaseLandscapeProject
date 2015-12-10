@@ -45,11 +45,12 @@ public:
 	cocos2d::Sprite*        Life_3;
 	fallingObject*	Object1;
 	fallingObject*	Object2;
+	fallingObject*	Object3;
+	fallingObject*	Object4;
 	int		downSpeed;
 	float		randX;
 	float		randY;
 	int			Lives;
-	bool		TouchedBot;
 
 };
 
