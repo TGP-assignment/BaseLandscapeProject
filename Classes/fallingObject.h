@@ -12,10 +12,8 @@ public:
 	void initObject(cocos2d::Sprite*);
 	void update();
 	float randomX;
-	int		downSpeed;
+	float		downSpeed;
 	cocos2d::Vec2 currentPosition;
-	int currentX;
-	int currentY;
 	bool Touched;
 };
 

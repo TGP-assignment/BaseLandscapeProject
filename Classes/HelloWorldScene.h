@@ -18,8 +18,7 @@ public:
 
 	void update(float);
 	void LooseLife();
-	void fallingObj();
-	cocos2d::Sprite* randomSprite();
+	cocos2d::Sprite*	randomSprite();
 	cocos2d::Sprite*	currentSprite;
 
 	cocos2d::Sprite*        bean_1;
@@ -43,13 +42,12 @@ public:
 	cocos2d::Sprite*        Life_1;
 	cocos2d::Sprite*        Life_2;
 	cocos2d::Sprite*        Life_3;
+
 	fallingObject*	Object1;
 	fallingObject*	Object2;
 	fallingObject*	Object3;
 	fallingObject*	Object4;
-	int		downSpeed;
-	float		randX;
-	float		randY;
+
 	int			Lives;
 
 };

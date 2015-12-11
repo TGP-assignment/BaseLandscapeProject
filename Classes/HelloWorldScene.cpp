@@ -36,7 +36,6 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
-	downSpeed = 0;
 	
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
 	bean_2 = (Sprite*)rootNode->getChildByName("bean_2");
@@ -211,7 +210,7 @@ void HelloWorld::LooseLife()
 		{
 			Life_3->setPosition(-100, -100);
 			//Call end screen
-			ExitProcess(0); // remove once we have end screen
+			//ExitProcess(0); // remove once we have end screen
 
 		}
 		
