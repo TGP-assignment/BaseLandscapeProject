@@ -61,8 +61,6 @@ bool HelloWorld::init()
 	Lives = 3;
 
 	currentSprite = bean_1;
-	downSpeed = 2;
-	randX = random() % 925 + 35;
 	currentSprite = randomSprite();
 	Object1 = new fallingObject();
 	Object1->initObject(currentSprite);
