@@ -60,9 +60,22 @@ bool HelloWorld::init()
 	Life_3 = (Sprite*)rootNode->getChildByName("Life_3");
 	Lives = 3;
 
+	//-----------------------------------------------------------------------------------------
+	//TOUCHES
+	//Set up a touch listener.
+	auto touchListener = EventListenerTouchOneByOne::create();
+
+	//Set callbacks for our touch functions.
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+
+	//Add our touch listener to event listener list.
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+	//-----------------------------------------------------------------------------------------
+
 	currentSprite = bean_1;
-	downSpeed = 2;
-	randX = random() % 925 + 35;
 	currentSprite = randomSprite();
 	Object1 = new fallingObject();
 	Object1->initObject(currentSprite);
@@ -214,4 +227,35 @@ void HelloWorld::LooseLife()
 
 		}
 		
+}
+
+bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
+{
+	cocos2d::log("touch began");
+	Object1->ObjClicked();
+	if (touch)
+	return true;
+
+}
+
+//-------------------------------------------------------------------------
+
+void HelloWorld::onTouchEnded(Touch* touch, Event* event)
+{
+
+	cocos2d::log("touch ended");
+}
+
+//-------------------------------------------------------------------------
+
+void HelloWorld::onTouchMoved(Touch* touch, Event* event)
+{
+	cocos2d::log("touch moved");
+}
+
+//-------------------------------------------------------------------------
+
+void HelloWorld::onTouchCancelled(Touch* touch, Event* event)
+{
+	cocos2d::log("touch cancelled");
 }

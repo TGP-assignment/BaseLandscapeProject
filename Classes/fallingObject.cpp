@@ -1,7 +1,7 @@
 #include "fallingObject.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
+#include <CCNode.h>
 
+using namespace cocos2d;
 
 fallingObject::fallingObject()
 {
@@ -21,6 +21,7 @@ void fallingObject::initObject(cocos2d::Sprite* passedSpite)
 	currentPosition = currentSpite->getPosition();
 	Touched = false;
 	currentPosition.x = randomX;
+	SpiteBoundingBox = currentSpite->getBoundingBox;
 
 
 
@@ -44,6 +45,16 @@ void fallingObject::update()
 	{
 		Touched = false;
 	}
+}
+
+void fallingObject::ObjClicked()
+{
+	SpiteBoundingBox.size = currentSpite->getBoundingBox().size;
+	SpiteBoundingBox.origin = convertToWorldSpaceAR(currentSpite->getBoundingBox.orgin);
+	currentPosition.x = rand() % 925 + 35;
+	currentPosition.y = 700;
+	downSpeed = rand() % 3 + 1;
+	currentSpite->setPosition(currentPosition);
 }
 
 
