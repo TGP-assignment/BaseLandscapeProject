@@ -229,11 +229,36 @@ void HelloWorld::LooseLife()
 		
 }
 
+
 bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
 {
 	cocos2d::log("touch began");
-	Object1->ObjClicked();
-	if (touch)
+
+	TouchRect = touch->getLocation();
+
+	if (Object1->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object1->ObjClicked();
+		//score +1
+	}
+
+	if (Object2->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object2->ObjClicked();
+	}
+	if (Object3->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object3->ObjClicked();
+	}
+	if (Object4->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object4->ObjClicked();
+	}
+
 	return true;
 
 }

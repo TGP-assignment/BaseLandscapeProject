@@ -1,7 +1,10 @@
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
 #include "fallingObject.h"
-#include <CCNode.h>
 
 using namespace cocos2d;
+USING_NS_CC;
+
 
 fallingObject::fallingObject()
 {
@@ -16,12 +19,18 @@ fallingObject::~fallingObject()
 void fallingObject::initObject(cocos2d::Sprite* passedSpite)
 {
 	currentSpite = passedSpite;
-	randomX = rand() % 925 + 35;
+
 	downSpeed = rand() % 3 + 1;
 	currentPosition = currentSpite->getPosition();
-	Touched = false;
+	winsize = Director::getInstance()->getVisibleSize();
+
+	scrWidth = winsize.width * 0.95;
+	scrHeight = winsize.height;
+	randomX = rand() % (scrWidth + 32);
+
 	currentPosition.x = randomX;
-	SpiteBoundingBox = currentSpite->getBoundingBox;
+	Touched = false;
+
 
 
 
@@ -33,10 +42,10 @@ void fallingObject::update()
 	currentPosition.y -= downSpeed;
 	currentSpite->setPosition(currentPosition);
 
-	if (currentPosition.y <= 30)
+	if (currentPosition.y <= 5)
 	{
-		currentPosition.x = rand() % 925 + 35;
-		currentPosition.y = 700;
+		currentPosition.x = rand() % scrWidth;
+		currentPosition.y = scrHeight + 40;
 		Touched = true;
 		downSpeed = rand() % 3 + 1;
 
@@ -49,12 +58,10 @@ void fallingObject::update()
 
 void fallingObject::ObjClicked()
 {
-	SpiteBoundingBox.size = currentSpite->getBoundingBox().size;
-	SpiteBoundingBox.origin = convertToWorldSpaceAR(currentSpite->getBoundingBox.orgin);
-	currentPosition.x = rand() % 925 + 35;
-	currentPosition.y = 700;
+
+	currentPosition.x = rand() % scrWidth;
+	currentPosition.y = scrHeight + 40;
 	downSpeed = rand() % 3 + 1;
-	currentSpite->setPosition(currentPosition);
 }
 
 

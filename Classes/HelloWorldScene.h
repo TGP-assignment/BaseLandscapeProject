@@ -56,6 +56,9 @@ public:
 	fallingObject*	Object3;
 	fallingObject*	Object4;
 
+	cocos2d::Vec2	TouchRect;
+	
+
 	int			Lives;
 
 };

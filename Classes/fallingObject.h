@@ -1,7 +1,6 @@
 #include "HelloWorldScene.h"
 #include "cocos2d.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
+
 
 
 class fallingObject
@@ -18,6 +17,8 @@ public:
 	cocos2d::Vec2 currentPosition;
 	bool Touched;
 	void ObjClicked();
-	cocos2d::Rect	SpiteBoundingBox;
+	cocos2d::Size	winsize;
+	int scrWidth;
+	int scrHeight;
 };
 
