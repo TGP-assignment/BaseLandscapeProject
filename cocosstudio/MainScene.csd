@@ -248,6 +248,21 @@
             <FileData Type="Normal" Path="Hearts_01_64x64_009.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="playButton" ActionTag="-224096430" Tag="24" IconVisible="False" LeftMargin="432.9973" RightMargin="481.0027" TopMargin="365.0012" BottomMargin="238.9988" TouchEnable="True" FontSize="14" ButtonText="Play" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="46.0000" Y="36.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="455.9973" Y="256.9988" />
+            <Scale ScaleX="2.6522" ScaleY="1.7778" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4750" Y="0.4016" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
