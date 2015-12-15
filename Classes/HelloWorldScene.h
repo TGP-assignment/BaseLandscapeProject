@@ -16,6 +16,14 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
+
+	//touches
+	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
+	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
+	virtual void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
+	virtual void onTouchCancelled(cocos2d::Touch*, cocos2d::Event*);
+
+
 	void update(float);
 	void LooseLife();
 	cocos2d::Sprite*	randomSprite();
@@ -47,6 +55,9 @@ public:
 	fallingObject*	Object2;
 	fallingObject*	Object3;
 	fallingObject*	Object4;
+
+	cocos2d::Vec2	TouchRect;
+	
 
 	int			Lives;
 

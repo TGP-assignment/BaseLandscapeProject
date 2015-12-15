@@ -2,6 +2,7 @@
 #include "cocos2d.h"
 
 
+
 class fallingObject
 {
 public:
@@ -15,5 +16,9 @@ public:
 	float		downSpeed;
 	cocos2d::Vec2 currentPosition;
 	bool Touched;
+	void ObjClicked();
+	cocos2d::Size	winsize;
+	int scrWidth;
+	int scrHeight;
 };
 
