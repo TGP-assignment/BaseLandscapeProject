@@ -62,6 +62,7 @@ void fallingObject::ObjClicked()
 	currentPosition.x = rand() % scrWidth;
 	currentPosition.y = scrHeight + 40;
 	downSpeed = rand() % 3 + 1;
+	currentSpite->setPosition(currentPosition) ;
 }
 
 

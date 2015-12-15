@@ -241,22 +241,34 @@ bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
 		cocos2d::log("clicked");
 		Object1->ObjClicked();
 		//score +1
+		currentSprite = randomSprite();
+		Object1->currentSpite = currentSprite;
+		
 	}
 
 	if (Object2->currentSpite->boundingBox().containsPoint(TouchRect))
 	{
 		cocos2d::log("clicked");
 		Object2->ObjClicked();
+
+		currentSprite = randomSprite();
+		Object2->currentSpite = currentSprite;
 	}
 	if (Object3->currentSpite->boundingBox().containsPoint(TouchRect))
 	{
 		cocos2d::log("clicked");
 		Object3->ObjClicked();
+
+		currentSprite = randomSprite();
+		Object3->currentSpite = currentSprite;
 	}
 	if (Object4->currentSpite->boundingBox().containsPoint(TouchRect))
 	{
 		cocos2d::log("clicked");
 		Object4->ObjClicked();
+
+		currentSprite = randomSprite();
+		Object4->currentSpite = currentSprite;
 	}
 
 	return true;
