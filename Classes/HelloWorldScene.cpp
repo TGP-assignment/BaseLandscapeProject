@@ -75,6 +75,14 @@ bool HelloWorld::init()
 	Object4->initObject(currentSprite);
 
 	this->scheduleUpdate();
+
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+
+	//Start button.
+	playButton = static_cast<ui::Button*>(rootNode->getChildByName("playButton"));
+	playButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::PlayButtonPressed, this));
+	playButton->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.5f));
     return true;
 
 }
@@ -212,4 +220,28 @@ void HelloWorld::LooseLife()
 
 		}
 		
+}
+void HelloWorld::PlayButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("In touch! %d", type);
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		//CCLOG("touch ended.");
+		this->StartGame();
+	}
+	this->StartGame();
+}
+
+void HelloWorld::StartGame()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	//Retract start button.
+	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); // Take half a second to move off screen.
+	playButton->runAction(moveTo);
+}
+void HelloWorld::EndGame()
+{
+
 }

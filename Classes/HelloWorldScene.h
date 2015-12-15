@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
 class fallingObject;
 class HelloWorld : public cocos2d::Layer
@@ -49,6 +50,12 @@ public:
 	fallingObject*	Object4;
 
 	int			Lives;
+
+	void PlayButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void StartGame();
+	void EndGame();
+private:
+	cocos2d::ui::Button*    playButton;
 
 };
 
