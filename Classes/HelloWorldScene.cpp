@@ -215,7 +215,7 @@ void HelloWorld::LooseLife()
 		if (Lives == 0)
 		{
 			Life_3->setPosition(-100, -100);
-			//Call end screen
+			EndGame();
 			//ExitProcess(0); // remove once we have end screen
 
 		}
@@ -238,10 +238,14 @@ void HelloWorld::StartGame()
 	auto winSize = Director::getInstance()->getVisibleSize();
 
 	//Retract start button.
-	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); // Take half a second to move off screen.
+	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); 
 	playButton->runAction(moveTo);
 }
 void HelloWorld::EndGame()
 {
+	auto winSize = Director::getInstance()->getVisibleSize();
 
+	//Bring start button back on screen.
+	auto moveTo = MoveTo::create(0.5, Vec2(winSize.width*0.5f, winSize.height*0.5f)); 
+	playButton->runAction(moveTo);
 }
