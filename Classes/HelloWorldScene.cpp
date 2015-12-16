@@ -43,6 +43,10 @@ bool HelloWorld::init()
 	titleLabel = (Label*)rootNode->getChildByName("titleLabel");
 	titleLabel->setPosition(500, 500);
 
+	//GameOverLabel
+	gameOverLabel = (Label*)rootNode->getChildByName("GameOverLabel");
+	gameOverLabel->setPosition(-150, -150);
+
 	
 	//sprites
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
@@ -255,6 +259,8 @@ void HelloWorld::StartGame()
 void HelloWorld::EndGame()
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+
+	gameOverLabel->setPosition(500, 500);
 
 	//Bring start button back on screen.
 	auto moveTo = MoveTo::create(0.5, Vec2(winSize.width*0.5f, winSize.height*0.5f)); 

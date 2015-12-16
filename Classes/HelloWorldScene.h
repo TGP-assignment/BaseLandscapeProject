@@ -58,6 +58,7 @@ private:
 	cocos2d::ui::Button*    playButton;
 	cocos2d::Label*         scoreLabel;
 	cocos2d::Label*			titleLabel;
+	cocos2d::Label*			gameOverLabel;
 
 };
 

@@ -285,6 +285,17 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
+          <AbstractNodeData Name="GameOverLabel" ActionTag="745653167" Tag="27" IconVisible="False" LeftMargin="253.9534" RightMargin="334.0466" TopMargin="-187.4772" BottomMargin="746.4772" FontSize="72" LabelText="Game Over" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="372.0000" Y="81.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="439.9534" Y="786.9772" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="242" G="20" B="20" />
+            <PrePosition X="0.4583" Y="1.2297" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
