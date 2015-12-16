@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
 class fallingObject;
 class HelloWorld : public cocos2d::Layer
@@ -16,7 +17,6 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
-
 	//touches
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -26,6 +26,7 @@ public:
 
 	void update(float);
 	void LooseLife();
+
 	cocos2d::Sprite*	randomSprite();
 	cocos2d::Sprite*	currentSprite;
 
@@ -60,6 +61,21 @@ public:
 	
 
 	int			Lives;
+	bool		isGameLive;
+
+	void ResetLives();
+	void PlayButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void ExitButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void StartGame();
+	void EndGame();
+	void ExitGame();
+private:
+
+	cocos2d::ui::Button*    playButton;
+	cocos2d::ui::Button*    exitButton;
+	cocos2d::Label*         scoreLabel;
+	cocos2d::Label*			titleLabel;
+	cocos2d::Label*			gameOverLabel;
 
 };
 

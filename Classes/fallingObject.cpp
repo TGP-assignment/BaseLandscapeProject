@@ -32,8 +32,6 @@ void fallingObject::initObject(cocos2d::Sprite* passedSpite)
 	Touched = false;
 
 
-
-
 }
 
 void fallingObject::update()
