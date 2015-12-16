@@ -248,14 +248,14 @@
             <FileData Type="Normal" Path="Hearts_01_64x64_009.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="playButton" ActionTag="-224096430" Tag="24" IconVisible="False" LeftMargin="433.9959" RightMargin="480.0041" TopMargin="433.0011" BottomMargin="170.9989" TouchEnable="True" FontSize="14" ButtonText="Play" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="46.0000" Y="36.0000" />
+          <AbstractNodeData Name="playButton" ActionTag="-224096430" Tag="24" IconVisible="False" LeftMargin="426.9959" RightMargin="473.0041" TopMargin="433.0011" BottomMargin="170.9989" TouchEnable="True" FontSize="14" ButtonText="Play" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="60.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="456.9959" Y="188.9989" />
-            <Scale ScaleX="2.6522" ScaleY="1.7778" />
+            <Scale ScaleX="1.3000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4760" Y="0.2953" />
-            <PreSize X="0.0000" Y="0.0000" />
+            <PreSize X="0.0625" Y="0.0562" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
