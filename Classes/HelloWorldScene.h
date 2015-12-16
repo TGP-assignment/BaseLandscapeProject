@@ -17,8 +17,6 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
-	void update(float);
-	void LooseLife();
 	cocos2d::Sprite*	randomSprite();
 	cocos2d::Sprite*	currentSprite;
 
@@ -52,6 +50,8 @@ public:
 	int			Lives;
 	bool		isGameLive;
 
+	void update(float);
+	void LooseLife();
 	void ResetLives();
 	void PlayButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void StartGame();

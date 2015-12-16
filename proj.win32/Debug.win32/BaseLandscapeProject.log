@@ -1,4 +1,4 @@
-﻿Build started 16/12/2015 07:28:01.
+﻿Build started 16/12/2015 07:36:29.
      1>Project "C:\Users\Neil Jones\Documents\GitHub\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
      1>PreLinkEvent:
          if not exist "C:\Users\Neil Jones\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "C:\Users\Neil Jones\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\"
@@ -19,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.32
+Time Elapsed 00:00:02.54

@@ -22,8 +22,6 @@ void fallingObject::initObject(cocos2d::Sprite* passedSpite)
 	Touched = false;
 	currentPosition.x = randomX;
 
-
-
 }
 
 void fallingObject::update()

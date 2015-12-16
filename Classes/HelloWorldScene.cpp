@@ -47,7 +47,6 @@ bool HelloWorld::init()
 	gameOverLabel = (Label*)rootNode->getChildByName("GameOverLabel");
 	gameOverLabel->setPosition(-150, -150);
 
-	
 	//sprites
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
 	bean_2 = (Sprite*)rootNode->getChildByName("bean_2");
@@ -102,7 +101,6 @@ bool HelloWorld::init()
 }
 void HelloWorld::update(float delta)
 {
-	
 		Object1->update();
 		Object2->update();
 		Object3->update();
@@ -217,7 +215,6 @@ cocos2d::Sprite* HelloWorld::randomSprite()
 }
 void HelloWorld::LooseLife()
 {
-
 		Lives--;
 		if (Lives == 2)
 		{
@@ -234,7 +231,6 @@ void HelloWorld::LooseLife()
 			Life_3->setPosition(-100, -100);
 			EndGame();
 			//ExitProcess(0); 
-
 		}
 		
 }
@@ -257,7 +253,6 @@ void HelloWorld::PlayButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEvent
 	}
 	this->StartGame();
 }
-
 void HelloWorld::StartGame()
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
