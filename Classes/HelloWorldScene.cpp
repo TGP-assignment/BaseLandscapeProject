@@ -283,6 +283,10 @@ void HelloWorld::StartGame()
 	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); 
 	playButton->runAction(moveTo);
 
+	//Retract exit button.
+	 moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.4f));
+	exitButton->runAction(moveTo);
+
 }
 void HelloWorld::EndGame()
 {
