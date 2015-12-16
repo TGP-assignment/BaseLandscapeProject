@@ -86,6 +86,8 @@ bool HelloWorld::init()
 	Object4 = new fallingObject();
 	Object4->initObject(currentSprite);
 
+	isGameLive = false;
+
 	this->scheduleUpdate();
 
 	auto winSize = Director::getInstance()->getVisibleSize();
@@ -100,32 +102,35 @@ bool HelloWorld::init()
 }
 void HelloWorld::update(float delta)
 {
-	Object1->update();
-	Object2->update();
-	Object3->update();
-	Object4->update();
-
-	if(Object1->Touched)
+	
+		Object1->update();
+		Object2->update();
+		Object3->update();
+		Object4->update();
+	if (isGameLive == true)
 	{
-		Object1->Touched = false;
-		LooseLife();
+		if (Object1->Touched)
+		{
+			Object1->Touched = false;
+			LooseLife();
+		}
+		if (Object2->Touched)
+		{
+			Object2->Touched = false;
+			LooseLife();
+		}
+		if (Object3->Touched)
+		{
+			Object3->Touched = false;
+			LooseLife();
+		}
+		if (Object4->Touched)
+		{
+			Object4->Touched = false;
+			LooseLife();
+		}
 	}
-	if (Object2->Touched)
-	{
-		Object2->Touched = false;
-		LooseLife();
-	}
-	if (Object3->Touched)
-	{
-		Object3->Touched = false;
-		LooseLife();
-	}
-	if (Object4->Touched)
-	{
-		Object4->Touched = false;
-		LooseLife();
-	}
-
+	
 }
 cocos2d::Sprite* HelloWorld::randomSprite()
 {
@@ -249,6 +254,8 @@ void HelloWorld::StartGame()
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
 
+	isGameLive = true;
+
 	titleLabel->setPosition(-100,-100);
 
 	//Retract start button.
@@ -259,6 +266,8 @@ void HelloWorld::StartGame()
 void HelloWorld::EndGame()
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+
+	isGameLive = false;
 
 	gameOverLabel->setPosition(500, 500);
 

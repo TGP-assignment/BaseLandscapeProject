@@ -50,11 +50,13 @@ public:
 	fallingObject*	Object4;
 
 	int			Lives;
+	bool		isGameLive;
 
 	void PlayButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void StartGame();
 	void EndGame();
 private:
+
 	cocos2d::ui::Button*    playButton;
 	cocos2d::Label*         scoreLabel;
 	cocos2d::Label*			titleLabel;
