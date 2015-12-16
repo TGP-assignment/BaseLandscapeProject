@@ -39,7 +39,12 @@ bool HelloWorld::init()
 
 	//Score label.
 	scoreLabel = (Label*)rootNode->getChildByName("scoreLabel");
+	//title Label
+	titleLabel = (Label*)rootNode->getChildByName("titleLabel");
+	titleLabel->setPosition(500, 500);
+
 	
+	//sprites
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
 	bean_2 = (Sprite*)rootNode->getChildByName("bean_2");
 	bean_3 = (Sprite*)rootNode->getChildByName("bean_3");
@@ -80,7 +85,6 @@ bool HelloWorld::init()
 	this->scheduleUpdate();
 
 	auto winSize = Director::getInstance()->getVisibleSize();
-
 
 	//Start button.
 	playButton = static_cast<ui::Button*>(rootNode->getChildByName("playButton"));
@@ -220,7 +224,7 @@ void HelloWorld::LooseLife()
 		{
 			Life_3->setPosition(-100, -100);
 			EndGame();
-			//ExitProcess(0); // remove once we have end screen
+			//ExitProcess(0); 
 
 		}
 		
@@ -241,9 +245,12 @@ void HelloWorld::StartGame()
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
 
+	titleLabel->setPosition(-100,-100);
+
 	//Retract start button.
 	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); 
 	playButton->runAction(moveTo);
+
 }
 void HelloWorld::EndGame()
 {
@@ -252,4 +259,5 @@ void HelloWorld::EndGame()
 	//Bring start button back on screen.
 	auto moveTo = MoveTo::create(0.5, Vec2(winSize.width*0.5f, winSize.height*0.5f)); 
 	playButton->runAction(moveTo);
+
 }
