@@ -37,8 +37,7 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
-	//Score label.
-	scoreLabel = (Label*)rootNode->getChildByName("scoreLabel");
+
 	//title Label
 	titleLabel = (Label*)rootNode->getChildByName("titleLabel");
 	titleLabel->setPosition(500, 500);
@@ -47,6 +46,8 @@ bool HelloWorld::init()
 	gameOverLabel = (Label*)rootNode->getChildByName("GameOverLabel");
 	gameOverLabel->setPosition(-150, -150);
 
+	//Score label.
+	scoreLabel = (Label*)rootNode->getChildByName("scoreLabel");
 	//sprites
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
 	bean_2 = (Sprite*)rootNode->getChildByName("bean_2");
@@ -69,6 +70,8 @@ bool HelloWorld::init()
 	Life_1 = (Sprite*)rootNode->getChildByName("Life_1");
 	Life_2 = (Sprite*)rootNode->getChildByName("Life_2");
 	Life_3 = (Sprite*)rootNode->getChildByName("Life_3");
+
+
 	Lives = 3;
 
 	//-----------------------------------------------------------------------------------------
@@ -115,16 +118,20 @@ bool HelloWorld::init()
 	exitButton = static_cast<ui::Button*>(rootNode->getChildByName("exitButton"));
 	exitButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::ExitButtonPressed, this));
 	exitButton->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.4f));
-
+	score = 0;
+	this->scheduleUpdate();
     return true;
 
 }
 void HelloWorld::update(float delta)
-{
+{		
+	
 		Object1->update();
 		Object2->update();
 		Object3->update();
 		Object4->update();
+
+
 	if (isGameLive == true)
 	{
 		if (Object1->Touched)
@@ -269,6 +276,10 @@ void HelloWorld::PlayButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEvent
 	{
 		//CCLOG("touch ended.");
 		this->StartGame();
+		Object1->ObjClicked();
+		Object2->ObjClicked();
+		Object3->ObjClicked();
+		Object4->ObjClicked();
 	}
 	this->StartGame();
 }
@@ -302,6 +313,8 @@ void HelloWorld::StartGame()
 	 moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.4f));
 	exitButton->runAction(moveTo);
 
+	score = 0;
+
 }
 void HelloWorld::EndGame()
 {
@@ -329,43 +342,45 @@ bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
 	cocos2d::log("touch began");
 
 	TouchRect = touch->getLocation();
-
-	if (Object1->currentSpite->boundingBox().containsPoint(TouchRect))
+	if (isGameLive == true)
 	{
-		cocos2d::log("clicked");
-		Object1->ObjClicked();
-		//score +1
-		currentSprite = randomSprite();
-		Object1->currentSpite = currentSprite;
-		
+		if (Object1->currentSpite->boundingBox().containsPoint(TouchRect))
+		{
+			cocos2d::log("clicked");
+			Object1->ObjClicked();
+			score += 1;
+			currentSprite = randomSprite();
+			Object1->currentSpite = currentSprite;
+
+		}
+
+		if (Object2->currentSpite->boundingBox().containsPoint(TouchRect))
+		{
+			cocos2d::log("clicked");
+			Object2->ObjClicked();
+			score += 1;
+			currentSprite = randomSprite();
+			Object2->currentSpite = currentSprite;
+		}
+		if (Object3->currentSpite->boundingBox().containsPoint(TouchRect))
+		{
+			cocos2d::log("clicked");
+			Object3->ObjClicked();
+			score += 1;
+			currentSprite = randomSprite();
+			Object3->currentSpite = currentSprite;
+		}
+		if (Object4->currentSpite->boundingBox().containsPoint(TouchRect))
+		{
+			cocos2d::log("clicked");
+			Object4->ObjClicked();
+			score += 1;
+			currentSprite = randomSprite();
+			Object4->currentSpite = currentSprite;
+		}
+
+		return true;
 	}
-
-	if (Object2->currentSpite->boundingBox().containsPoint(TouchRect))
-	{
-		cocos2d::log("clicked");
-		Object2->ObjClicked();
-
-		currentSprite = randomSprite();
-		Object2->currentSpite = currentSprite;
-	}
-	if (Object3->currentSpite->boundingBox().containsPoint(TouchRect))
-	{
-		cocos2d::log("clicked");
-		Object3->ObjClicked();
-
-		currentSprite = randomSprite();
-		Object3->currentSpite = currentSprite;
-	}
-	if (Object4->currentSpite->boundingBox().containsPoint(TouchRect))
-	{
-		cocos2d::log("clicked");
-		Object4->ObjClicked();
-
-		currentSprite = randomSprite();
-		Object4->currentSpite = currentSprite;
-	}
-
-	return true;
 
 }
 

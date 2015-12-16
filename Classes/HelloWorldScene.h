@@ -51,6 +51,7 @@ public:
 	cocos2d::Sprite*        Life_1;
 	cocos2d::Sprite*        Life_2;
 	cocos2d::Sprite*        Life_3;
+	cocos2d::Label*         scoreLabel;
 
 	fallingObject*	Object1;
 	fallingObject*	Object2;
@@ -69,11 +70,12 @@ public:
 	void StartGame();
 	void EndGame();
 	void ExitGame();
+	int score;
 private:
 
 	cocos2d::ui::Button*    playButton;
 	cocos2d::ui::Button*    exitButton;
-	cocos2d::Label*         scoreLabel;
+
 	cocos2d::Label*			titleLabel;
 	cocos2d::Label*			gameOverLabel;
 
