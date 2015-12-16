@@ -71,6 +71,21 @@ bool HelloWorld::init()
 	Life_3 = (Sprite*)rootNode->getChildByName("Life_3");
 	Lives = 3;
 
+	//-----------------------------------------------------------------------------------------
+	//TOUCHES
+	//Set up a touch listener.
+	auto touchListener = EventListenerTouchOneByOne::create();
+
+	//Set callbacks for our touch functions.
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+
+	//Add our touch listener to event listener list.
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+	//-----------------------------------------------------------------------------------------
+
 	currentSprite = bean_1;
 	currentSprite = randomSprite();
 	Object1 = new fallingObject();
@@ -307,4 +322,71 @@ void HelloWorld::EndGame()
 void HelloWorld::ExitGame()
 {
 	ExitProcess(0);
+}
+
+bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
+{
+	cocos2d::log("touch began");
+
+	TouchRect = touch->getLocation();
+
+	if (Object1->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object1->ObjClicked();
+		//score +1
+		currentSprite = randomSprite();
+		Object1->currentSpite = currentSprite;
+		
+	}
+
+	if (Object2->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object2->ObjClicked();
+
+		currentSprite = randomSprite();
+		Object2->currentSpite = currentSprite;
+	}
+	if (Object3->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object3->ObjClicked();
+
+		currentSprite = randomSprite();
+		Object3->currentSpite = currentSprite;
+	}
+	if (Object4->currentSpite->boundingBox().containsPoint(TouchRect))
+	{
+		cocos2d::log("clicked");
+		Object4->ObjClicked();
+
+		currentSprite = randomSprite();
+		Object4->currentSpite = currentSprite;
+	}
+
+	return true;
+
+}
+
+//-------------------------------------------------------------------------
+
+void HelloWorld::onTouchEnded(Touch* touch, Event* event)
+{
+
+	cocos2d::log("touch ended");
+}
+
+//-------------------------------------------------------------------------
+
+void HelloWorld::onTouchMoved(Touch* touch, Event* event)
+{
+	cocos2d::log("touch moved");
+}
+
+//-------------------------------------------------------------------------
+
+void HelloWorld::onTouchCancelled(Touch* touch, Event* event)
+{
+	cocos2d::log("touch cancelled");
 }
