@@ -296,6 +296,21 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
+          <AbstractNodeData Name="exitButton" ActionTag="1604638870" Tag="28" IconVisible="False" LeftMargin="427.6956" RightMargin="472.3044" TopMargin="480.0001" BottomMargin="123.9999" TouchEnable="True" FontSize="14" ButtonText="Exit" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="60.0000" Y="36.0000" />
+            <AnchorPoint ScaleX="0.5217" ScaleY="0.4167" />
+            <Position X="459.0000" Y="138.9999" />
+            <Scale ScaleX="1.3000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4781" Y="0.2172" />
+            <PreSize X="0.0625" Y="0.0562" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
