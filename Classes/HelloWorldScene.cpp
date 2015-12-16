@@ -96,6 +96,11 @@ bool HelloWorld::init()
 	playButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::PlayButtonPressed, this));
 	playButton->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.5f));
 
+	//exit button
+	exitButton = static_cast<ui::Button*>(rootNode->getChildByName("exitButton"));
+	exitButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::ExitButtonPressed, this));
+	exitButton->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.4f));
+
     return true;
 
 }
@@ -229,8 +234,7 @@ void HelloWorld::LooseLife()
 		if (Lives == 0)
 		{
 			Life_3->setPosition(-100, -100);
-			EndGame();
-			//ExitProcess(0); 
+			EndGame(); 
 		}
 		
 }
@@ -252,6 +256,17 @@ void HelloWorld::PlayButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEvent
 		this->StartGame();
 	}
 	this->StartGame();
+}
+void HelloWorld::ExitButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("In touch! %d", type);
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		//CCLOG("touch ended.");
+		this->ExitGame();
+	}
+	this->ExitGame();
 }
 void HelloWorld::StartGame()
 {
@@ -281,4 +296,8 @@ void HelloWorld::EndGame()
 	auto moveTo = MoveTo::create(0.5, Vec2(winSize.width*0.5f, winSize.height*0.5f)); 
 	playButton->runAction(moveTo);
 
+}
+void HelloWorld::ExitGame()
+{
+	ExitProcess(0);
 }

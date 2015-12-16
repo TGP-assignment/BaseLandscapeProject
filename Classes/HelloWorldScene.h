@@ -54,11 +54,14 @@ public:
 	void LooseLife();
 	void ResetLives();
 	void PlayButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void ExitButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void StartGame();
 	void EndGame();
+	void ExitGame();
 private:
 
 	cocos2d::ui::Button*    playButton;
+	cocos2d::ui::Button*    exitButton;
 	cocos2d::Label*         scoreLabel;
 	cocos2d::Label*			titleLabel;
 	cocos2d::Label*			gameOverLabel;
