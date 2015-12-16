@@ -52,6 +52,7 @@ public:
 	int			Lives;
 	bool		isGameLive;
 
+	void ResetLives();
 	void PlayButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void StartGame();
 	void EndGame();

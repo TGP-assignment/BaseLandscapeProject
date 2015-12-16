@@ -238,6 +238,14 @@ void HelloWorld::LooseLife()
 		}
 		
 }
+void HelloWorld::ResetLives()
+{
+	Life_1->setPosition(740, 30);
+	Life_2->setPosition(820, 30);
+	Life_3->setPosition(900,30);
+
+	Lives = 3;
+}
 void HelloWorld::PlayButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CCLOG("In touch! %d", type);
@@ -257,6 +265,9 @@ void HelloWorld::StartGame()
 	isGameLive = true;
 
 	titleLabel->setPosition(-100,-100);
+	gameOverLabel->setPosition(-100, -100);
+
+	ResetLives();
 
 	//Retract start button.
 	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); 
