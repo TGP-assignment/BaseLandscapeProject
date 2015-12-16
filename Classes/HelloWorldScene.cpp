@@ -2,6 +2,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "fallingObject.h"
+#include "stdio.h"
 
 USING_NS_CC;
 
@@ -36,6 +37,8 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
+	//Score label.
+	scoreLabel = (Label*)rootNode->getChildByName("scoreLabel");
 	
 	bean_1 = (Sprite*)rootNode->getChildByName("bean_1");
 	bean_2 = (Sprite*)rootNode->getChildByName("bean_2");
@@ -83,6 +86,7 @@ bool HelloWorld::init()
 	playButton = static_cast<ui::Button*>(rootNode->getChildByName("playButton"));
 	playButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::PlayButtonPressed, this));
 	playButton->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.5f));
+
     return true;
 
 }

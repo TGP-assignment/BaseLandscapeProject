@@ -56,6 +56,7 @@ public:
 	void EndGame();
 private:
 	cocos2d::ui::Button*    playButton;
+	cocos2d::Label*         scoreLabel;
 
 };
 
